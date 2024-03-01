@@ -4,20 +4,22 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 
 public class Main
 {
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args)
     {
         ScraperUtils utils = new ScraperUtils();
-        String testWebsiteData = utils.webGetRequest("https://cdn.lemon-studios.ca");
-        Document document = Jsoup.parse(testWebsiteData);
-        System.out.println(document.title());
-        Elements paragraphs = document.getAllElements();
-        for (Element paragraph : paragraphs)
+        try
         {
-            System.out.println(paragraph.text());
+            utils.getWeather();
         }
+        catch(IOException | URISyntaxException e)
+        {
+            System.out.println(e);
+        }
+
     }
 }
