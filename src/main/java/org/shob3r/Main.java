@@ -1,11 +1,6 @@
 package org.shob3r;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.net.URISyntaxException;
-
 
 public class Main
 {
@@ -14,12 +9,12 @@ public class Main
         ScraperUtils utils = new ScraperUtils();
         try
         {
-            utils.getWeather();
+            System.out.println(utils.getWeather());
+            System.out.println(utils.getStockPrice());
         }
-        catch(IOException | URISyntaxException e)
+        catch(IOException|URISyntaxException exception)
         {
-            System.out.println(e);
+            System.out.println("An Error Occurred: " + exception);
         }
-
     }
 }
